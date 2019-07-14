@@ -65,7 +65,7 @@ namespace SeleniumCSharp.tests
             Boolean status3 = verify.Displayed;
             Assert.IsTrue(status3);
             Assert.AreEqual("Invalid e-mail", verify.Text);
-            Thread.Sleep(5000);
+            Thread.Sleep(5000); // needs to be removed (It is always not recommended to use Thread.Sleep() while Testing)
         }
 
         [TearDown]
