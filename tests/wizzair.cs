@@ -28,7 +28,7 @@ namespace SeleniumCSharp.tests
 
         [Test]
 
-            public void Test_wrong_email()
+            public void test_wrong_email()
         {
             IWebElement signIn = driver.FindElement(By.XPath("//*[@id='app']/div/header/div[1]/div/nav/ul/li[7]/button"));
             signIn.Click();
