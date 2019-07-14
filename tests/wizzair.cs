@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace SeleniumCSharp.tests
 {
+    [TestFixture]
     internal class SeleniumTesting
     {
         IWebDriver driver;
 
         [SetUp]
-
             public void StartBrowser()
         {
             driver = new ChromeDriver("C:\\Users\\Adrian\\source\\chromedriver_win32\\");
@@ -25,10 +25,15 @@ namespace SeleniumCSharp.tests
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
+            
+        [TearDown]
+            public void CloseBrowser()
+            {
+                driver.Quit();
+            }
 
         [Test]
-
-            public void test_wrong_email()
+            public void invalid_email_test()
         {
             IWebElement signIn = driver.FindElement(By.XPath("//*[@id='app']/div/header/div[1]/div/nav/ul/li[7]/button"));
             signIn.Click();
@@ -66,13 +71,6 @@ namespace SeleniumCSharp.tests
             Assert.IsTrue(status3);
             Assert.AreEqual("Invalid e-mail", verify.Text);
             Thread.Sleep(5000); // needs to be removed (It is always not recommended to use Thread.Sleep() while Testing)
-        }
-
-        [TearDown]
-
-            public void CloseBrowser()
-        {
-            driver.Quit();
         }
     }
 }
