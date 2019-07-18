@@ -16,24 +16,25 @@ namespace SeleniumCSharp.tests
     internal class SeleniumTesting
     {
         IWebDriver driver;
-
+        
         [SetUp]
-            public void StartBrowser()
+        public void StartBrowser()
         {
-            driver = new ChromeDriver("C:\\Users\\Adrian\\source\\chromedriver_win32\\");
-            driver.Url = "https://www.wizzair.com/en-en#/";
+            const string pageUrl = "https://wizzair.com/en-en#/";
+            driver = new ChromeDriver("C:\\Users\\Adrian\\source\\chromedriver_win32\\") {Url = pageUrl};
             driver.Manage().Window.Maximize();
+            Assert.AreEqual(driver.Url, pageUrl);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
             
         [TearDown]
-            public void CloseBrowser()
-            {
-                driver.Quit();
-            }
+        public void CloseBrowser()
+        {
+            driver.Quit();
+        }
 
         [Test]
-            public void invalid_email_test()
+        public void invalid_email_test()
         {
             IWebElement signIn = driver.FindElement(By.XPath("//*[@id='app']/div/header/div[1]/div/nav/ul/li[7]/button"));
             signIn.Click();
