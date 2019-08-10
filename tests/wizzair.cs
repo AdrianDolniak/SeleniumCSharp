@@ -38,7 +38,7 @@ namespace SeleniumCSharp.tests
         {
             IWebElement signIn = driver.FindElement(By.XPath("//*[@id='app']/div/header/div[1]/div/nav/ul/li[7]/button"));
             signIn.Click();
-            IWebElement registration = driver.FindElement(By.XPath("//*[@id='login-modal']/form/div/p/button"));
+            IWebElement registration = driver.FindElement(By.XPath("//p//button[@class='content__link1']"));
             registration.Click();
             IWebElement fName = driver.FindElement(By.XPath("//*[@id='regmodal-scroll-hook-1']/label[1]/div[1]/input"));
             fName.SendKeys("Jan");
@@ -60,11 +60,11 @@ namespace SeleniumCSharp.tests
             IWebElement password = driver.FindElement(By.XPath("//*[@id='regmodal-scroll-hook-5']/div[1]/label/input"));
             password.SendKeys("QWERTYuiop12345");
             IWebElement nationality = driver.FindElement(By.XPath("//*[@id='regmodal-scroll-hook-6']/div[1]/label/input"));
-            nationality.SendKeys("Polska");
-            IWebElement checkBox1 = driver.FindElement(By.XPath("//*[@id='registration-modal']/form/div[2]/div[9]/span/label[1]"));
+            nationality.SendKeys("Poland");
+            IWebElement checkBox1 = driver.FindElement(By.XPath("//label[@for='registration-special-offers-checkbox']"));
             Boolean status1 = checkBox1.Selected;
             Assert.IsFalse(status1);
-            IWebElement checkBox2 = driver.FindElement(By.XPath("//*[@id='registration-modal']/form/div[2]/div[10]/span/label[1]"));
+            IWebElement checkBox2 = driver.FindElement(By.XPath("//label[@for='registration-privacy-policy-checkbox']"));
             Boolean status2 = checkBox2.Selected;
             Assert.IsFalse(status2);
             IWebElement verify = driver.FindElement(By.XPath("//*[@id='regmodal-scroll-hook-4']/div[2]/span/span"));
