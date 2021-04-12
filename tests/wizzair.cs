@@ -16,15 +16,8 @@ namespace SeleniumCSharp.tests
         [SetUp]
         public void StartBrowser()
         {
-<<<<<<< HEAD
             driver = new ChromeDriver("D:\\Testing\\Visual Studio C # Testing\\");
             driver.Url = "https://www.wizzair.com/en-en#/";
-=======
-            const string pageUrl = "https://wizzair.com/en-en#/";
-            driver = new ChromeDriver("C:\\Users\\Adrian\\source\\chromedriver_win32\\") {Url = pageUrl};
->>>>>>> d8854ca437f52ee0cc3fd64dbee17b45b1c90a9c
-            driver.Manage().Window.Maximize();
-            Assert.AreEqual(driver.Url, pageUrl);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
             
